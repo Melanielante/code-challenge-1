@@ -1,6 +1,6 @@
 function estimateTransactionFee() {
-    let input = prompt("Unatuma Ngapi? (KES):");
-    let amountToSend = Number(input);
+    let amountToSend = document.getElementById("amountInput").value;
+    amountToSend = Number(amountToSend);
 
     let transactionFee = 0.015 * amountToSend;
     let fee;
@@ -16,11 +16,15 @@ function estimateTransactionFee() {
 
     const totalDebited = amountToSend + fee;
 
-    console.log(`Sending KES ${amountToSend}:`);
-    console.log(`Calculated Transaction Fee : KES ${fee}`);
-    console.log(`Total amount to be debited: KES ${totalDebited}`);
+    document.getElementById("output").innerHTML = `
+      <p>Unatuma Ngapi? (KES): ${amountToSend} </p>
+      <ul>
+        <li>Sending KES ${amountToSend}: </li>
+        <li>Calculated Transaction Fee : KES ${fee} </li>
+        <li>Total amount to be debited: KES ${totalDebited} </li>
+      </ul>
 
-    console.log(`Send Money Securely!`);
+      <p>Send Money Securely! </p>
 
+    `;
 }
-estimateTransactionFee();
